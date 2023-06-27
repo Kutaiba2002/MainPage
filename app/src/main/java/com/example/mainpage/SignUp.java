@@ -59,9 +59,8 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
-                database.collection("SignUp_page") .document("Signup") .set(new Member(edtNameSign.getText().toString(), edtEmailSign.getText().toString(),
-                        edtPassSign.getText().toString()));
-
+                database.collection("SignUp_page")
+                        .add(new Member(edtNameSign.getText().toString(), edtEmailSign.getText().toString(), edtPassSign.getText().toString()));
             }
         });
 
