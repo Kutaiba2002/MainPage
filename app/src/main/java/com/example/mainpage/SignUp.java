@@ -1,6 +1,8 @@
 package com.example.mainpage;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +63,9 @@ public class SignUp extends AppCompatActivity {
 
                 database.collection("SignUp_page")
                         .add(new Member(edtNameSign.getText().toString(), edtEmailSign.getText().toString(), edtPassSign.getText().toString()));
+
+                Intent intent = new Intent(SignUp.this, LogIn.class);
+                startActivity(intent);
             }
         });
 
