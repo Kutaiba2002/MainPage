@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7FD8D0"
+    tools:context=".SignUp"
+    android:scrollbars="vertical"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="casual"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textSize="50dp"
+        android:textColor="@color/white"/>
+    <EditText
+        android:id="@+id/edtNameSign"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="20sp"
+        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:background="@drawable/rounded_edittext"
+        android:drawablePadding="20sp"
+        android:hint="User Name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <EditText
+        android:id="@+id/edtEmailSign"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20sp"
+        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:background="@drawable/rounded_edittext"
+        android:drawablePadding="20sp"
+        android:hint="Email"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <EditText
+        android:id="@+id/edtPassSign"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20sp"
+        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:background="@drawable/rounded_edittext"
+        android:drawablePadding="20sp"
+        android:hint="password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <EditText
+        android:id="@+id/edtPassRepeatSign"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20sp"
+        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:background="@drawable/rounded_edittext"
+        android:drawablePadding="20sp"
+        android:hint="Repeat password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <Button
+        android:id="@+id/btSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_cust_mainpage"
+        android:textStyle="italic"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>
