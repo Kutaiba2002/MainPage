@@ -31,9 +31,9 @@ public class AccomdationAdapter extends RecyclerView.Adapter<AccomdationAdapter.
 
         RoomDetails roomDetails = roomArrayList.get(position);
         holder.imageView.setImageResource(roomDetails.getImage());
+        holder.priceTxt.setText(roomDetails.getPrice() + "$/day");
         holder.nameTxt.setText(roomDetails.getName());
-        holder.nameTxt.setText(String.valueOf(roomDetails.getPrice()));
-        holder.numTxt.setText(String.valueOf(roomDetails.getNumberOfPerson()));
+        holder.numTxt.setText(String.valueOf(roomDetails.getNumberOfPerson() + " Person"));
     }
 
     @Override

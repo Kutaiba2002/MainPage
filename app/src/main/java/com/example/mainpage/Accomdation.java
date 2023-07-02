@@ -25,6 +25,8 @@ public class Accomdation extends AppCompatActivity {
         roomArrayList.add(new RoomDetails(R.drawable.studio,70,"Studio Room",2));
         roomArrayList.add(new RoomDetails(R.drawable.connecting,150,"Connecting Room",4));
         roomArrayList.add(new RoomDetails(R.drawable.granda,120,"Granda Room",2));
+        roomArrayList.add(new RoomDetails(R.drawable.granda,170,"Adjacent Room",5));
+        roomArrayList.add(new RoomDetails(R.drawable.granda,120,"Granda Room",2));
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
