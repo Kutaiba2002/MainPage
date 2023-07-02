@@ -3,10 +3,12 @@ package com.example.mainpage;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class AccomdationAdapter extends RecyclerView.Adapter<AccomdationAdapter.
         holder.priceTxt.setText(roomDetails.getPrice() + "$/day");
         holder.nameTxt.setText(roomDetails.getName());
         holder.numTxt.setText(String.valueOf(roomDetails.getNumberOfPerson() + " Person"));
+        holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.recycler_animation));
     }
 
     @Override
@@ -47,12 +50,14 @@ public class AccomdationAdapter extends RecyclerView.Adapter<AccomdationAdapter.
         public TextView priceTxt;
         public TextView nameTxt;
         public TextView numTxt;
+        public CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.roomImage);
             priceTxt = itemView.findViewById(R.id.priceTxt);
             nameTxt = itemView.findViewById(R.id.roomName);
             numTxt = itemView.findViewById(R.id.numPerson);
+            cardView= itemView.findViewById(R.id.accomdation_cardView);
         }
     }
 }
