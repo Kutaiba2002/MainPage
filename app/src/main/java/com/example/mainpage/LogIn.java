@@ -38,10 +38,10 @@ public class LogIn extends AppCompatActivity {
                 collectionRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot querySnapshot) {
-                        // Process the querySnapshot to access the documents and their data
+
                         for (DocumentSnapshot documentSnapshot : querySnapshot) {
                             String documentId = documentSnapshot.getId();
-                            // Get specific fields from the document
+
                             String email = documentSnapshot.getString("email");
                             String password = documentSnapshot.getString("pass");
 
@@ -49,7 +49,7 @@ public class LogIn extends AppCompatActivity {
                                 if (edtPassword.getText().toString().equals(password)) {
                                     Intent intent = new Intent(LogIn.this, MainActivity.class);
                                     startActivity(intent);
-                                    return; // Add this line to exit the loop if login is successful
+                                    return;
                                 }
                             }
                         }
