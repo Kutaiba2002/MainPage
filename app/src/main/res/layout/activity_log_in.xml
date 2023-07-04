@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".LogIn">
 
 
@@ -11,7 +12,7 @@
         android:layout_width="199dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/logo"
         />
 
@@ -20,34 +21,33 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="20sp"
         android:drawableLeft="@drawable/baseline_person_outline_24"
         android:background="@drawable/rounded_edittext"
         android:drawablePadding="20sp"
         android:hint="Email"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/baseline_info_24"
         android:drawablePadding="20sp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textColorHint="@color/white" />
 
     <LinearLayout
         android:layout_width="342dp"
         android:layout_height="105dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -56,14 +56,14 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="100dp"
             android:layout_gravity="left"
-            android:text="Sing Up" />
+            android:text="Log in" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Forged password" />
+            android:text="Sign Up" />
     </LinearLayout>
 
 
