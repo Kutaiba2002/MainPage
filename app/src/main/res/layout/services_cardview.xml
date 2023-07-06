@@ -4,7 +4,7 @@
     android:layout_height="250dp"
     android:layout_margin="10dp"
     android:backgroundTint="@color/white"
-   android:id="@+id/accomdation_cardView"
+    android:id="@+id/services_cardView"
     >
 
     <LinearLayout
@@ -18,8 +18,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_margin="9dp"
-            android:id="@+id/roomImage"
+            android:id="@+id/serviceImage"
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,28 +28,8 @@
             android:layout_marginBottom="5dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/priceTxt"
+            android:id="@+id/txtServicesName"
             android:textColor="#FF0000"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/roomName"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/numPerson"
-            android:textColor="@color/black"
             />
 
     </LinearLayout>
