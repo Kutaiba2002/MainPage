@@ -15,42 +15,43 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
 
 import java.util.List;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
-   private Context context;
-   private List<Services> servicesList;
-   private SharedPreferences prefs;
-   private Gson gson;
+public class FacilitesAdapter extends RecyclerView.Adapter<FacilitesAdapter.ViewHolder> {
+    private Context context;
+    private List<Facilites> facilitesList;
+    private SharedPreferences prefs;
+    private Gson gson;
 
-    public ServicesAdapter(Context context, List<Services> servicesList) {
+    public FacilitesAdapter(Context context, List<Facilites> facilitesList) {
         this.context = context;
-        this.servicesList = servicesList;
+        this.facilitesList = facilitesList;
         this.prefs = context.getSharedPreferences("123", Context.MODE_PRIVATE);
         this.gson = gson;
     }
 
     private void saveDataToSharedPreferences() {
         SharedPreferences.Editor editor = prefs.edit();
-        String json = gson.toJson(servicesList);
+        String json = gson.toJson(facilitesList);
         editor.putString("123", json);
         editor.apply();
     }
 
     @NonNull
     @Override
-    public ServicesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.services_cardview, parent, false);
-        return new ViewHolder(view);
+    public FacilitesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.facilites_cardview, parent, false);
+        return new FacilitesAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Services item = servicesList.get(position);
+    public void onBindViewHolder(@NonNull FacilitesAdapter.ViewHolder holder, int position) {
+        Facilites item = facilitesList.get(position);
         holder.name.setText(item.getName());
-        holder.dec.setText(item.getDec());
+        holder.dec.setText(item.getDes());
         holder.image.setImageResource(item.getImage());
         holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.ress));
 
@@ -60,9 +61,9 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
                 int i = holder.getAdapterPosition();
 
                 Intent intent = new Intent(view.getContext(), ServicesView.class);
-                intent.putExtra("image", servicesList.get(i).getImage());
-                intent.putExtra("name", servicesList.get(i).getName());
-                intent.putExtra("dec",servicesList.get(i).getDec());
+                intent.putExtra("image", facilitesList.get(i).getImage());
+                intent.putExtra("name", facilitesList.get(i).getName());
+                intent.putExtra("dec",facilitesList.get(i).getDes());
                 startActivity(view.getContext(), intent, null);
             }
         });
@@ -70,7 +71,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return servicesList.size();
+        return facilitesList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -80,10 +81,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         private TextView dec;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.services_cardView);
-            image = itemView.findViewById(R.id.serviceImage);
-            name = itemView.findViewById(R.id.txtServicesName);
-            dec = itemView.findViewById(R.id.txtServicesDes);
+            cardView = itemView.findViewById(R.id.facilitesCardView);
+            image = itemView.findViewById(R.id.facilitesImage);
+            name = itemView.findViewById(R.id.txtFacilitesName);
+            dec = itemView.findViewById(R.id.txtFacilitesDes);
         }
     }
 }
+

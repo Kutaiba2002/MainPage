@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ServicesView extends AppCompatActivity {
+public class FacilitesView extends AppCompatActivity {
     private ImageView image;
     private TextView name , des;
 
@@ -16,10 +16,10 @@ public class ServicesView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_services_view);
-        name = findViewById(R.id.getNameSer);
-        image = findViewById(R.id.getImageSer);
-        des = findViewById(R.id.getDecSer);
+        setContentView(R.layout.activity_facilites_view);
+        name = findViewById(R.id.getNameFes);
+        image = findViewById(R.id.getImageFes);
+        des = findViewById(R.id.getDecFes);
 
         Intent intent = getIntent();
         String gName =intent.getStringExtra("name");

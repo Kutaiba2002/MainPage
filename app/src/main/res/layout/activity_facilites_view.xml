@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".ServicesActivity">
+    tools:context=".FacilitesView">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/getImageSer"
+        android:id="@+id/getImageFes"
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
@@ -18,7 +18,7 @@
         />
 
     <TextView
-        android:id="@+id/getNameSer"
+        android:id="@+id/getNameFes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -35,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:layout_margin="20dp">
         <TextView
-            android:id="@+id/getDecSer"
+            android:id="@+id/getDecFes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
