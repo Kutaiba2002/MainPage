@@ -60,7 +60,7 @@ public class FacilitesAdapter extends RecyclerView.Adapter<FacilitesAdapter.View
             public void onClick(View view) {
                 int i = holder.getAdapterPosition();
 
-                Intent intent = new Intent(view.getContext(), ServicesView.class);
+                Intent intent = new Intent(view.getContext(), FacilitesView.class);
                 intent.putExtra("image", facilitesList.get(i).getImage());
                 intent.putExtra("name", facilitesList.get(i).getName());
                 intent.putExtra("dec",facilitesList.get(i).getDes());
