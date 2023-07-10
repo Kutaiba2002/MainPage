@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
 
@@ -31,7 +29,6 @@ public class SignUp extends AppCompatActivity {
         edtEmailSign = findViewById(R.id.edtEmailSign);
         edtPassSign = findViewById(R.id.edtPassSign);
         edtPassRepeatSign = findViewById(R.id.edtPassRepeatSign);
-        btSignUp = findViewById(R.id.btSignUp);
 
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

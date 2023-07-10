@@ -45,25 +45,31 @@
 
     <LinearLayout
         android:layout_width="342dp"
-        android:layout_height="105dp"
+        android:layout_height="130dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
 
         <Button
             android:id="@+id/btLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="100dp"
-            android:layout_gravity="left"
-            android:text="Log in" />
+            android:layout_width="132dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_start"
+            android:text="Log in"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="7dp" />
 
-        <Button
-            android:id="@+id/button2"
+        <TextView
+            android:id="@+id/textsw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Sign Up" />
+            android:text=" Create account"
+            android:textColor="#AF7817"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp"/>
     </LinearLayout>
 
 

@@ -27,14 +27,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, SignUp.class));
                         return true;
                     case R.id.home:
-                        // Handle item 2 click
                         startActivity(new Intent(MainActivity.this, MainActivity.class));
 
                         return true;
                     case R.id.settings:
-                        // Handle item 3 click
+                        logout();
                         return true;
-                    // Add cases for other menu items if needed
                 }
                 return false;
             }
@@ -42,4 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void logout() {
+        startActivity(new Intent(MainActivity.this, LogIn.class));
+        finish();
+    }
+
 }

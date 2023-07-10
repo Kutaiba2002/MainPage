@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -17,7 +18,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class LogIn extends AppCompatActivity {
 
+
     private EditText edtEmail;
+    private TextView textView;
     private EditText edtPassword;
     private Button login;
     private FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -30,6 +33,15 @@ public class LogIn extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         login = findViewById(R.id.btLogin);
+
+        textView=findViewById(R.id.textsw);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LogIn.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
