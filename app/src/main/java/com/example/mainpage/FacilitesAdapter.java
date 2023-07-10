@@ -81,10 +81,10 @@ public class FacilitesAdapter extends RecyclerView.Adapter<FacilitesAdapter.View
         private TextView dec;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.facilitesCardView);
+            //cardView = itemView.findViewById(R.id.facilitesCardView);
             image = itemView.findViewById(R.id.facilitesImage);
             name = itemView.findViewById(R.id.txtFacilitesName);
-            dec = itemView.findViewById(R.id.txtFacilitesDes);
+            //dec = itemView.findViewById(R.id.txtFacilitesDes);
         }
     }
 }
