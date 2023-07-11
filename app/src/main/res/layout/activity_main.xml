@@ -13,29 +13,29 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:fontFamily="casual"
+        android:fontFamily="cursive"
         android:text="HOTEL APP"
         android:textAlignment="center"
         android:textSize="50dp"
         android:textColor="#0B1012"/>
+
     <Button
         android:id="@+id/btAccomadtion"
-        android:layout_width="wrap_content"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_cust_mainpage"
-        android:textStyle="italic"
+        android:hint="mm"
         android:text="Accomdation"
         android:textAlignment="center"
+        android:textColor="#282858"
         android:textSize="30dp"
-        android:textColor="@color/white"
-        android:hint="mm"
-       />
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/btServices"
-        android:layout_width="wrap_content"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_cust_mainpage"
         android:layout_gravity="center"
@@ -46,11 +46,11 @@
         android:text="Services"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textColor="@color/white"
+        android:textColor="#282858"
         />
     <Button
         android:id="@+id/btFacilities"
-        android:layout_width="wrap_content"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_cust_mainpage"
         android:layout_gravity="center"
@@ -61,11 +61,11 @@
         android:text="Facilities"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textColor="@color/white"
+        android:textColor="#282858"
         />
     <Button
         android:id="@+id/btAboutHotel"
-        android:layout_width="wrap_content"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_cust_mainpage"
         android:layout_gravity="center"
@@ -76,20 +76,20 @@
         android:text="About Hotel"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textColor="@color/white"
+        android:textColor="#282858"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="268dp"
-        android:layout_height="94dp"
-        android:layout_margin="20dp"
-        android:layout_gravity="center">
+        android:layout_width="284dp"
+        android:layout_height="87dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp">
 
         <Button
             android:id="@+id/btMbail"
             android:layout_width="65dp"
             android:layout_height="55dp"
-            android:background="@drawable/mobile"
+            android:background="@drawable/insta"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.078"
@@ -102,7 +102,7 @@
             android:id="@+id/btGoogle"
             android:layout_width="65dp"
             android:layout_height="55dp"
-            android:background="@drawable/googlee"
+            android:background="@drawable/google"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +113,7 @@
             android:id="@+id/btFace"
             android:layout_width="64dp"
             android:layout_height="59dp"
-            android:background="@drawable/face"
+            android:background="@drawable/facebook"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.921"
@@ -124,6 +124,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -131,13 +132,14 @@
 
         <FrameLayout
             android:id="@+id/flFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="409dp"
+            android:layout_height="113dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"

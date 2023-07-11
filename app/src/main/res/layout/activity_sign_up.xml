@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7FD8D0"
-    tools:context=".SignUp"
     android:scrollbars="vertical"
     android:orientation="vertical">
     <TextView
@@ -37,7 +35,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20sp"
-        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:drawableLeft="@drawable/email"
         android:background="@drawable/rounded_edittext"
         android:drawablePadding="20sp"
         android:hint="Email"
@@ -50,7 +48,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20sp"
-        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:drawableLeft="@drawable/password"
         android:background="@drawable/rounded_edittext"
         android:drawablePadding="20sp"
         android:hint="password"
@@ -63,24 +61,20 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20sp"
-        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:drawableLeft="@drawable/rpassword"
         android:background="@drawable/rounded_edittext"
         android:drawablePadding="20sp"
         android:hint="Repeat password"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
     <Button
-        android:id="@+id/btSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btLogin"
+        android:layout_width="132dp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_cust_mainpage"
-        android:textStyle="italic"
+        android:background="@drawable/button_start"
         android:text="Sign Up"
-        android:textAlignment="center"
-        android:textSize="30dp"
-        android:textColor="@color/white"
+        android:textSize="20dp"
         />
 
 </LinearLayout>
