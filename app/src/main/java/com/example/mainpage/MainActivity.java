@@ -66,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        Intent intent = getIntent();
+        String docId = intent.getStringExtra("docID");
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (itemId) {
                     case R.id.profile:
                         // Handle item 1 click
-                        startActivity(new Intent(MainActivity.this, SignUp.class));
+                        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                        intent.putExtra("docID",docId);
+                        startActivity(intent);
                         return true;
                     case R.id.home:
                         startActivity(new Intent(MainActivity.this, MainActivity.class));
