@@ -19,23 +19,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btFace , btGoogle ,btMbail , btAboutHotel,btAccomadtion;
+    private Button btFace , btGoogle ,btInsta , btAboutHotel, btAccomadtion,btFacilites,btServices;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btFace = findViewById(R.id.btFace);
         btGoogle = findViewById(R.id.btGoogle);
-        btMbail = findViewById(R.id.btMbail);
+        btInsta = findViewById(R.id.btMbail);
         btAboutHotel = findViewById(R.id.btAboutHotel);
+        btFacilites = findViewById(R.id.btFacilities);
+        btServices = findViewById(R.id.btServices);
 
-//        btAboutHotel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Handle displaying hotel information in ListView
-//                displayHotelInformation();
-//            }
-//        });
+        btFacilites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FacilitesActivity.class));
+
+            }
+        });
+        btServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ServicesActivity.class));
+
+            }
+        });
 
 
         btAccomadtion = findViewById(R.id.btAccomadtion);
@@ -48,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
-        btMbail.setOnClickListener(new View.OnClickListener() {
+        btInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle opening the Instagram page here
@@ -82,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         String docId = intent.getStringExtra("docID");
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(MenuItem item) {
                 // Handle item clicks here
                 int itemId = item.getItemId();
                 switch (itemId) {
@@ -137,25 +145,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(instagramPageUrl)));
         }
     }
-//    private void displayHotelInformation() {
-//        // Create a list of hotel information
-//        List<String> hotelInfoList = new ArrayList<>();
-//        hotelInfoList.add("Hotel Name: Example Hotel");
-//        hotelInfoList.add("Location: City, Country");
-//        hotelInfoList.add("Phone: +1234567890");
-//        // Add more hotel information as needed
-//
-//        // Create an ArrayAdapter to populate the ListView with the hotel information
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, hotelInfoList);
-//
-//        // Find the ListView in your layout file
-//        ListView listView = findViewById(R.id.listViewAboutHotel);
-//
-//        // Set the adapter to the ListView
-//        listView.setAdapter(adapter);
-//    }
-
-
-
-
 }
