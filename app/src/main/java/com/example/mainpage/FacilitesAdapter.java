@@ -51,7 +51,6 @@ public class FacilitesAdapter extends RecyclerView.Adapter<FacilitesAdapter.View
     public void onBindViewHolder(@NonNull FacilitesAdapter.ViewHolder holder, int position) {
         Facilites item = facilitesList.get(position);
         holder.name.setText(item.getName());
-        holder.dec.setText(item.getDes());
         holder.image.setImageResource(item.getImage());
         holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.ress));
 
@@ -78,13 +77,11 @@ public class FacilitesAdapter extends RecyclerView.Adapter<FacilitesAdapter.View
         private CardView cardView;
         private ImageView image;
         private TextView name;
-        private TextView dec;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //cardView = itemView.findViewById(R.id.facilitesCardView);
+            cardView = itemView.findViewById(R.id.services_facilitesCardViewcardView);
             image = itemView.findViewById(R.id.facilitesImage);
             name = itemView.findViewById(R.id.txtFacilitesName);
-            //dec = itemView.findViewById(R.id.txtFacilitesDes);
         }
     }
 }

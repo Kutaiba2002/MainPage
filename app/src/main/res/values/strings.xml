@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Main Page</string>
+    <string-array name="optian">
+        <item>Describtion</item>
+        <item>phone</item>
+        <item>accomadtion</item>
+        <item>services</item>
+        <item>facilities</item>
+    </string-array>
 </resources>

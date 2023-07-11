@@ -12,9 +12,14 @@
         android:theme="@style/Theme.MainPage"
         tools:targetApi="31">
         <activity
+            android:name=".HotelDetals"
+            android:exported="false" />
+        <activity
+            android:name=".ListViewHotel"
+            android:exported="true" />
+        <activity
             android:name=".ProfileActivity"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +28,7 @@
         </activity>
         <activity
             android:name=".FacilitesView"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".FacilitesActivity"
             android:exported="true">
@@ -36,41 +41,21 @@
         <activity
             android:name=".ServicesView"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ServicesActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ShowDetails"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Accomdation"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SignUp"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LogIn"
@@ -84,11 +69,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
