@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.search.SearchBar;
 
 import java.util.ArrayList;
@@ -39,11 +41,43 @@ public class Accomdation extends AppCompatActivity implements RecyclerInterface 
     @Override
     public void onItemClick(int position) {
         RoomDetails roomDetails = roomArrayList.get(position);
-        Intent intent = new Intent(Accomdation.this, ShowDetails.class);
-        intent.putExtra("name", roomDetails.getName());
-        intent.putExtra("image", roomDetails.getImage());
-        intent.putExtra("price", roomDetails.getPrice());
-        intent.putExtra("description", roomDetails.getDescription());
-        startActivity(intent);
+        Intent intent1 = new Intent(Accomdation.this, ShowDetails.class);
+        intent1.putExtra("name", roomDetails.getName());
+        intent1.putExtra("image", roomDetails.getImage());
+        intent1.putExtra("price", roomDetails.getPrice());
+        intent1.putExtra("description", roomDetails.getDescription());
+        startActivity(intent1);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        Intent intent = getIntent();
+        String docId = intent.getStringExtra("docID");
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                // Handle item clicks here
+                int itemId = item.getItemId();
+                switch (itemId) {
+                    case R.id.profile:
+                        // Handle item 1 click
+                        Intent intent = new Intent(Accomdation.this, ProfileActivity.class);
+                        intent.putExtra("docID",docId);
+                        startActivity(intent);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(Accomdation.this, MainActivity.class));
+
+                        return true;
+                    case R.id.settings:
+                        logout();
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+    private void logout() {
+        startActivity(new Intent(Accomdation.this, LogIn.class));
+        finish();
     }
 }

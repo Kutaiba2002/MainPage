@@ -2,7 +2,9 @@ package com.example.mainpage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,9 @@ public class SignUp extends AppCompatActivity {
     private EditText edtPassSign;
     private EditText edtPassRepeatSign;
     private Button btSignUp;
-    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    private SharedPreferences sharedPreferences;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,42 +33,62 @@ public class SignUp extends AppCompatActivity {
         edtEmailSign = findViewById(R.id.edtEmailSign);
         edtPassSign = findViewById(R.id.edtPassSign);
         edtPassRepeatSign = findViewById(R.id.edtPassRepeatSign);
+        btSignUp = findViewById(R.id.btSignin);
+
+        sharedPreferences = getSharedPreferences("SignUpData", MODE_PRIVATE);
 
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(edtNameSign.getText().toString().equals("")){
-                    Toast.makeText(SignUp.this, "You did not enter a username", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(edtEmailSign.getText().toString().equals("")){
-                    Toast.makeText(SignUp.this, "You did not enter a email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(edtPassSign.getText().toString().equals("")){
-                    Toast.makeText(SignUp.this, "You did not enter a password", Toast.LENGTH_SHORT).show();
-                    return;
-                } else if (edtPassSign.getText().toString().length() <= 8) {
-                        Toast.makeText(SignUp.this, "your password must be at least 8 char long", Toast.LENGTH_SHORT).show();
-                        return;
-
-                }
-                if(edtPassRepeatSign.getText().toString().equals("")){
-                    Toast.makeText(SignUp.this, "Enter the repeat password", Toast.LENGTH_SHORT).show();
-                    return;
-                }else if(!edtPassRepeatSign.getText().toString().equals(edtPassSign.getText().toString())){
-                    Toast.makeText(SignUp.this, "Enter the repeat password correctly", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                database.collection("SignUp_page")
-                        .add(new Member(edtNameSign.getText().toString(), edtEmailSign.getText().toString(), edtPassSign.getText().toString()));
-
-                Intent intent = new Intent(SignUp.this, LogIn.class);
-                startActivity(intent);
+                signUp();
             }
         });
 
+        // Restore user input if available
+        String savedName = sharedPreferences.getString("name", "");
+        String savedEmail = sharedPreferences.getString("email", "");
+        String savedPassword = sharedPreferences.getString("password", "");
+        String savedRepeatPassword = sharedPreferences.getString("repeat_password", "");
+
+        edtNameSign.setText(savedName);
+        edtEmailSign.setText(savedEmail);
+        edtPassSign.setText(savedPassword);
+        edtPassRepeatSign.setText(savedRepeatPassword);
+    }
+
+    private void signUp() {
+        String name = edtNameSign.getText().toString().trim();
+        String email = edtEmailSign.getText().toString().trim();
+        String password = edtPassSign.getText().toString().trim();
+        String repeatPassword = edtPassRepeatSign.getText().toString().trim();
+
+        // Perform validation and sign up process
+
+        // Save user input
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name", name);
+        editor.putString("email", email);
+        editor.putString("password", password);
+        editor.putString("repeat_password", repeatPassword);
+        editor.apply();
+
+        // Continue with sign up process
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Save user input before destroying the activity
+        String name = edtNameSign.getText().toString().trim();
+        String email = edtEmailSign.getText().toString().trim();
+        String password = edtPassSign.getText().toString().trim();
+        String repeatPassword = edtPassRepeatSign.getText().toString().trim();
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name", name);
+        editor.putString("email", email);
+        editor.putString("password", password);
+        editor.putString("repeat_password", repeatPassword);
+        editor.apply();
     }
 }
