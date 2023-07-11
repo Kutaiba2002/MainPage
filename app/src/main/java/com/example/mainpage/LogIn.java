@@ -60,6 +60,7 @@ public class LogIn extends AppCompatActivity {
                             if (edtEmail.getText().toString().equals(email)) {
                                 if (edtPassword.getText().toString().equals(password)) {
                                     Intent intent = new Intent(LogIn.this, MainActivity.class);
+                                    intent.putExtra("docID",documentId);
                                     startActivity(intent);
                                     return;
                                 }

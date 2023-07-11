@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,49 +19,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btFace , btGoogle ,btInsta , btAboutHotel , btAccomdation , btServices, btFacilites;
+    private Button btFace , btGoogle ,btMbail , btAboutHotel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btFace = findViewById(R.id.btFace);
         btGoogle = findViewById(R.id.btGoogle);
-        btInsta = findViewById(R.id.btMbail);
+        btMbail = findViewById(R.id.btMbail);
         btAboutHotel = findViewById(R.id.btAboutHotel);
 
-        btAboutHotel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btAccomdation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Accomdation.class);
-                startActivity(intent);
-            }
-        });
-
-        btServices.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ServicesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btFacilites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , FacilitesActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btAboutHotel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Handle displaying hotel information in ListView
+//                displayHotelInformation();
+//            }
+//        });
 
 
-        btInsta.setOnClickListener(new View.OnClickListener() {
+        btMbail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle opening the Instagram page here
@@ -84,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         btFace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Handle opening the Facebook page here
                 openFacebookPage();
             }
         });
@@ -93,14 +69,16 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Handle item clicks here
                 int itemId = item.getItemId();
                 switch (itemId) {
                     case R.id.profile:
-                        item.setIconTintList(ColorStateList.valueOf(Color.BLUE));
+                        // Handle item 1 click
                         startActivity(new Intent(MainActivity.this, SignUp.class));
                         return true;
                     case R.id.home:
                         startActivity(new Intent(MainActivity.this, MainActivity.class));
+
                         return true;
                     case R.id.settings:
                         logout();
@@ -143,5 +121,25 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(instagramPageUrl)));
         }
     }
+//    private void displayHotelInformation() {
+//        // Create a list of hotel information
+//        List<String> hotelInfoList = new ArrayList<>();
+//        hotelInfoList.add("Hotel Name: Example Hotel");
+//        hotelInfoList.add("Location: City, Country");
+//        hotelInfoList.add("Phone: +1234567890");
+//        // Add more hotel information as needed
+//
+//        // Create an ArrayAdapter to populate the ListView with the hotel information
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, hotelInfoList);
+//
+//        // Find the ListView in your layout file
+//        ListView listView = findViewById(R.id.listViewAboutHotel);
+//
+//        // Set the adapter to the ListView
+//        listView.setAdapter(adapter);
+//    }
+
+
+
 
 }
