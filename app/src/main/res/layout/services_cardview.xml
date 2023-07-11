@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="175dp"
     android:layout_margin="25dp"
-    android:backgroundTint="#8FA590"
+    android:backgroundTint="@color/black"
     android:id="@+id/services_cardView"
     >
 
@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:id="@+id/txtServicesName"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             />
 
     </LinearLayout>

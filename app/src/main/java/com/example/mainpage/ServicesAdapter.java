@@ -50,7 +50,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Services item = servicesList.get(position);
         holder.name.setText(item.getName());
-        //holder.dec.setText(item.getDec());
         holder.image.setImageResource(item.getImage());
         holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.ress));
 
@@ -83,7 +82,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
             cardView = itemView.findViewById(R.id.services_cardView);
             image = itemView.findViewById(R.id.serviceImage);
             name = itemView.findViewById(R.id.txtServicesName);
-            //dec = itemView.findViewById(R.id.txtServicesDes);
         }
     }
 }

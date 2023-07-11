@@ -38,13 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        btFacilites.setOnClickListener(new View.OnClickListener() {
+
+        btAboutHotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FacilitesActivity.class));
+                startActivity(new Intent(MainActivity.this, ListViewHotel.class));
 
             }
         });
+
         btServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
