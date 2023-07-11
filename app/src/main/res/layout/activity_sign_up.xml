@@ -68,7 +68,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
     <Button
-        android:id="@+id/btLogin"
+        android:id="@+id/btSignin"
         android:layout_width="132dp"
         android:layout_height="48dp"
         android:layout_gravity="center"

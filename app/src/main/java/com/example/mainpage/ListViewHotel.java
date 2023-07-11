@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ListViewHotel extends AppCompatActivity {
 
@@ -37,5 +40,38 @@ public class ListViewHotel extends AppCompatActivity {
             }
         };
         listView.setOnItemClickListener(itemClickListener);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        Intent intent = getIntent();
+        String docId = intent.getStringExtra("docID");
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                // Handle item clicks here
+                int itemId = item.getItemId();
+                switch (itemId) {
+                    case R.id.profile:
+                        // Handle item 1 click
+                        Intent intent = new Intent(ListViewHotel.this, ProfileActivity.class);
+                        intent.putExtra("docID",docId);
+                        startActivity(intent);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(ListViewHotel.this, MainActivity.class));
+
+                        return true;
+                    case R.id.settings:
+                        logout();
+                        return true;
+                }
+                return false;
+            }
+        });
+
+
+    }
+    private void logout() {
+        startActivity(new Intent(ListViewHotel.this, LogIn.class));
+        finish();
     }
 }

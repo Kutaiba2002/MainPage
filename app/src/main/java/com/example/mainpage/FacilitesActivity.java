@@ -8,10 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -68,6 +71,37 @@ public class FacilitesActivity extends AppCompatActivity {
 
         FacilitesAdapter adapter = new FacilitesAdapter(this, listitem);
         recyclerView.setAdapter(adapter);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        Intent intent = getIntent();
+        String docId = intent.getStringExtra("docID");
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                // Handle item clicks here
+                int itemId = item.getItemId();
+                switch (itemId) {
+                    case R.id.profile:
+                        // Handle item 1 click
+                        Intent intent = new Intent(FacilitesActivity.this, ProfileActivity.class);
+                        intent.putExtra("docID",docId);
+                        startActivity(intent);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(FacilitesActivity.this, MainActivity.class));
+
+                        return true;
+                    case R.id.settings:
+                        logout();
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+    private void logout() {
+        startActivity(new Intent(FacilitesActivity.this, LogIn.class));
+        finish();
     }
 
 }
