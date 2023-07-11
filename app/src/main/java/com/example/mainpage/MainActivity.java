@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btFace , btGoogle ,btMbail , btAboutHotel;
+    private Button btFace , btGoogle ,btMbail , btAboutHotel,btAccomadtion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+        btAccomadtion = findViewById(R.id.btAccomadtion);
+        btAccomadtion.setOnClickListener(new View.OnClickListener() {
+            Intent intent = getIntent();
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this, Accomdation.class);
+                intent1.putExtra("docId",intent.getStringExtra("docID"));
+                startActivity(intent1);
+            }
+        });
 
         btMbail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        Intent intent = getIntent();
+        String docId = intent.getStringExtra("docID");
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (itemId) {
                     case R.id.profile:
                         // Handle item 1 click
-                        startActivity(new Intent(MainActivity.this, SignUp.class));
+                        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                        intent.putExtra("docID",docId);
+                        startActivity(intent);
                         return true;
                     case R.id.home:
                         startActivity(new Intent(MainActivity.this, MainActivity.class));
