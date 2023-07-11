@@ -16,12 +16,15 @@ import java.util.ArrayList;
 
 public class Accomdation extends AppCompatActivity implements RecyclerInterface {
 
+    private String docId;
     private ArrayList<RoomDetails> roomArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accomdation);
 
+        Intent intent = getIntent();
+        docId = intent.getStringExtra("docId");
         roomArrayList = new ArrayList<>();
         roomArrayList.add(new RoomDetails(R.drawable.single_room,50,"Single Room",1,"A single room is designed to accommodate a single guest. It typically consists of a single bed and basic amenities."));
         roomArrayList.add(new RoomDetails(R.drawable.double_bedroom,100,"Double Room",2,"A double room is suitable for two guests and usually contains a double or queen-sized bed. It provides space and amenities for two people to stay comfortably."));
@@ -46,12 +49,12 @@ public class Accomdation extends AppCompatActivity implements RecyclerInterface 
         intent1.putExtra("image", roomDetails.getImage());
         intent1.putExtra("price", roomDetails.getPrice());
         intent1.putExtra("description", roomDetails.getDescription());
+        intent1.putExtra("docId",docId);
         startActivity(intent1);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
-        Intent intent = getIntent();
-        String docId = intent.getStringExtra("docID");
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -61,7 +64,7 @@ public class Accomdation extends AppCompatActivity implements RecyclerInterface 
                     case R.id.profile:
                         // Handle item 1 click
                         Intent intent = new Intent(Accomdation.this, ProfileActivity.class);
-                        intent.putExtra("docID",docId);
+                        intent.putExtra("docID",intent.getStringExtra("docID"));
                         startActivity(intent);
                         return true;
                     case R.id.home:
