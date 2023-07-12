@@ -48,7 +48,7 @@
         android:layout_width="450dp"
         android:layout_height="75dp"
         android:layout_gravity="center"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="160dp"
         app:menu="@menu/bottom_nav_menu" />
 
 

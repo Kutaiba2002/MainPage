@@ -19,11 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btFace , btGoogle ,btInsta , btAboutHotel, btAccomadtion,btFacilites,btServices;
+
+    private Button btFace, btGoogle, btInsta, btAboutHotel, btAccomadtion, btFacilites, btServices;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btFace = findViewById(R.id.btFace);
         btGoogle = findViewById(R.id.btGoogle);
         btInsta = findViewById(R.id.btMbail);
@@ -35,16 +38,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FacilitesActivity.class));
-
             }
         });
-
 
         btAboutHotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ListViewHotel.class));
-
             }
         });
 
@@ -52,48 +52,57 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ServicesActivity.class));
-
             }
         });
-
 
         btAccomadtion = findViewById(R.id.btAccomadtion);
         btAccomadtion.setOnClickListener(new View.OnClickListener() {
-            Intent intent = getIntent();
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(MainActivity.this, Accomdation.class);
-                intent1.putExtra("docId",intent.getStringExtra("docID"));
+                intent1.putExtra("docId", getIntent().getStringExtra("docID"));
                 startActivity(intent1);
             }
         });
+
         btInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle opening the Instagram page here
-                openInstagramPage();
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        openInstagramPage();
+                    }
+                });
+                thread.start();
             }
         });
-
 
         btGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle opening the Google page here
-                openGooglePage();
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        openGooglePage();
+                    }
+                });
+                thread.start();
             }
         });
-
 
         btFace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle opening the Facebook page here
-                openFacebookPage();
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        openFacebookPage();
+                    }
+                });
+                thread.start();
             }
         });
-
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
         Intent intent = getIntent();
@@ -121,37 +130,36 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
     private void logout() {
         startActivity(new Intent(MainActivity.this, LogIn.class));
         finish();
     }
+
+
     private void openFacebookPage() {
         try {
-            // Open the Facebook page in the Facebook app
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/<mohtadedrabi>")));
         } catch (ActivityNotFoundException e) {
-            // Facebook app is not installed, open the Facebook page in a web browser
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/<mohtadedrabi>")));
         }
     }
+
     private void openGooglePage() {
-        String googlePageUrl = "https://www.google.com/search?q=wikipedia&rlz=1C1SQJL_arPS976PS976&sxsrf=AB5stBgi3RszjgTcVWuOf71bnPVGSluTDg%3A1689034273339&ei=IZ6sZMivFNDMsAf41r2gCA&oq=wekaped&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKOgoIABBHENYEELADOgoIABCKBRCwAxBDOhUILhCKBRDHARDRAxDIAxCwAxBDGAE6DwguEIoFEMgDELADEEMYAToFCAAQgAQ6EQguEIAEEMcBEK8BEJgFEJkFOggIABCABBDLAToUCC4QgAQQxwEQrwEQmAUQmQUQywE6BwgjEIoFECc6BAgjECc6DQgAEIoFELEDEIMBEEM6DgguEIAEEOcEEMcBENEDOggIABCABBDnBDoLCAAQgAQQsQMQgwE6BwgjEOoCECc6DQguEMcBENEDEOoCECc6BwguEOoCECc6DwgAEIoFEOoCELQCEEMYAjoVCC4QigUQxwEQ0QMQ6gIQtAIQQxgCOgsILhCABBCxAxCDAToHCC4QigUQQzoLCC4QgAQQxwEQ0QM6BQguEIAEOggIABCABBCxAzoLCC4QgwEQsQMQgAQ6EQguEIAEELEDEIMBEMcBENEDOhEILhCKBRCxAxCDARDHARDRAzoKCAAQigUQsQMQQzoTCC4QigUQsQMQgwEQxwEQ0QMQQzoNCC4QigUQxwEQ0QMQQzoHCC4QgAQQCjoWCC4QgAQQxwEQrwEQmAUQmQUQChDLAToKCAAQgAQQChDLAToQCC4QgAQQxwEQrwEQChDLAToVCC4QigUQQxCXBRDcBBDeBBDgBBgDSgQIQRgAULIEWNeJAmDXpAJoCnABeACAAb8BiAGaG5IBBDAuMjGYAQCgAQGwARTAAQHIAQ3aAQQIARgI2gEGCAIQARgB2gEGCAMQARgU&sclient=gws-wiz-serp"; // Replace with the actual Google page URL or search result URL
+        String googlePageUrl = "https://www.google.com/search?q=wikipedia&rlz=1C1SQJL_arPS976PS976&sxsrf=AB5stBgi3RszjgTcVWuOf71bnPVGSluTDg%3A1689034273339&ei=IZ6sZMivFNDMsAf41r2gCA&oq=wekaped&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKMgcIABCABBAKOgoIABBHENYEELADOgoIABCKBRCwAxBDOhUILhCKBRDHARDRAxDIAxCwAxBDGAE6DwguEIoFEMgDELADEEMYAToFCAAQgAQ6EQguEIAEEMcBEK8BEJgFEJkFOggIABCABBDLAToUCC4QgAQQxwEQrwEQmAUQmQUQywE6BwgjEIoFECc6BAgjECc6DQgAEIoFELEDEIMBEEM6DgguEIAEEOcEEMcBENEDOggIABCABBDnBDoLCAAQgAQQsQMQgwE6BwgjEOoCECc6DQguEMcBENEDEOoCECc6BwguEOoCECc6DwgAEIoFEOoCELQCEEMYAjoVCC4QigUQxwEQ0QMQ6gIQtAIQQxgCOgsILhCABBCxAxCDAToHCC4QigUQQzoLCC4QgAQQxwEQ0QM6BQguEIAEOggIABCABBCxAzoLCC4QgwEQsQMQgAQ6EQguEIAEELEDEIMBEMcBENEDOhEILhCKBRCxAxCDARDHARDRAzoKCAAQigUQsQMQQzoTCC4QigUQsQMQgwEQxwEQ0QMQQzoNCC4QigUQxwEQ0QMQQzoHCC4QgAQQCjoWCC4QgAQQxwEQrwEQmAUQmQUQChDLAToKCAAQgAQQChDLAToQCC4QgAQQxwEQrwEQChDLAToVCC4QigUQQxCXBRDcBBDeBBDgBBgDSgQIQRgAULIEWNeJAmDXpAJoCnABeACAAb8BiAGaG5IBBDAuMjGYAQCgAQGwARTAAQHIAQ3aAQQIARgI2gEGCAIQARgB2gEGCAMQARgU&sclient=gws-wiz-serp";
 
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(googlePageUrl));
         startActivity(intent);
     }
+
     private void openInstagramPage() {
-        String instagramPageUrl = "https://www.instagram.com/<mohtade__drabi_11>"; // Replace <USERNAME> with the actual Instagram username or profile URL
+        String instagramPageUrl = "https://www.instagram.com/<mohtade__drabi_11>";
 
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(instagramPageUrl));
-        intent.setPackage("com.instagram.android"); // Specify the package name of the Instagram app
+        intent.setPackage("com.instagram.android");
         try {
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            // Instagram app is not installed, open the Instagram page in a web browser
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(instagramPageUrl)));
         }
     }

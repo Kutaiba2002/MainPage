@@ -99,8 +99,6 @@ public class ServicesActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
     private void logout() {
         startActivity(new Intent(ServicesActivity.this, LogIn.class));

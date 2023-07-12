@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Main Page</string>
+    <string name="Log_in">log in</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="Accomdation">Accomdation</string>
+    <string name="Services">Services</string>
+    <string name="Facilities">Facilities</string>
+    <string name="About_Hotel">About Hotel</string>
+    <string name="Updeat">Updeat</string>
+    <string name="Reserve">Reserve</string>
     <string-array name="optian">
         <item>Describtion</item>
         <item>phone</item>

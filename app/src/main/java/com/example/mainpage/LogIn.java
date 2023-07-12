@@ -98,8 +98,8 @@ public class LogIn extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
         // Save user input before destroying the activity
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();

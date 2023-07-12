@@ -26,8 +26,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_cust_mainpage"
-        android:hint="mm"
-        android:text="Accomdation"
+        android:text="@string/Accomdation"
         android:textAlignment="center"
         android:textColor="#282858"
         android:textSize="30dp"
@@ -37,47 +36,46 @@
         android:id="@+id/btServices"
         android:layout_width="259dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_cust_mainpage"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
+        android:background="@drawable/button_cust_mainpage"
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
-        android:textStyle="italic"
-        android:text="Services"
+        android:text="@string/Services"
         android:textAlignment="center"
-        android:textSize="30dp"
         android:textColor="#282858"
-        />
+        android:textSize="30dp"
+        android:textStyle="italic" />
+
     <Button
         android:id="@+id/btFacilities"
         android:layout_width="259dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_cust_mainpage"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
+        android:background="@drawable/button_cust_mainpage"
         android:paddingLeft="55dp"
         android:paddingRight="55dp"
-        android:textStyle="italic"
-        android:text="Facilities"
+        android:text="@string/Facilities"
         android:textAlignment="center"
-        android:textSize="30dp"
         android:textColor="#282858"
-        />
+        android:textSize="30dp"
+        android:textStyle="italic" />
+
     <Button
         android:id="@+id/btAboutHotel"
         android:layout_width="259dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_cust_mainpage"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
+        android:background="@drawable/button_cust_mainpage"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:textStyle="italic"
-        android:text="About Hotel"
+        android:text="@string/About_Hotel"
         android:textAlignment="center"
-        android:textSize="30dp"
         android:textColor="#282858"
-        />
+        android:textSize="30dp"
+        android:textStyle="italic" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="284dp"

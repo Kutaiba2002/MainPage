@@ -27,7 +27,8 @@
         android:background="@drawable/rounded_edittext"
         android:drawablePadding="20sp"
         android:hint="Email"
-        android:textColor="@color/black"        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -57,7 +58,7 @@
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:background="@drawable/button_start"
-            android:text="Log in"
+            android:text="@string/Log_in"
             tools:layout_editor_absoluteX="93dp"
             tools:layout_editor_absoluteY="7dp" />
 
